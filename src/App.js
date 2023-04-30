@@ -1,24 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import HomeScreen from './HomeScreen.js';
+import PricingScreen from './PricingScreen.js';
+import SignInScreen from './SignInScreen.js';
+import TemplateRoute from './TemplateRoute.js';
+import RegistrationScreen from './RegistrationScreen.js';
+import LoginScreen from './LoginScreen.js';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <React.Fragment>
+        <BrowserRouter>
+          <Switch>
+            <TemplateRoute path="/" exact={true} component={HomeScreen} />
+            <TemplateRoute path="/pricing" exact={true} component={PricingScreen} />
+            <TemplateRoute path="/login" exact={true} component={LoginScreen} />
+            <TemplateRoute path="/register" exact={true} component={RegistrationScreen} />
+          </Switch>
+        </BrowserRouter>
+    </React.Fragment>
   );
 }
 
